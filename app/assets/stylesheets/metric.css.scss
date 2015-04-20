@@ -1,0 +1,70 @@
+// Place all the styles related to the Test controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.newTestForm {
+  input, textarea {
+    width: auto;
+  }
+
+  .testDetails {
+    width: 45%;
+  }
+  
+  .questionDetails {
+    width: 45%;
+  }
+
+  .formInputs:after {
+
+  }
+
+  .questionInput {
+    padding: 0 0 2em 0;
+    // TODO: make not have weird vertical issue with radio buttons.
+    .answerTypes .radio {
+      padding-left: 2em;
+    }
+  }
+}
+
+.metric {
+  background: rgba(#9AAED4, 0.5);
+  border-radius: 0.5em;
+  margin: 0.5em;
+  padding: 0.5em;
+  width: 45%;
+  height: 7em;
+
+  .title {
+    font-size: 1.3em;
+  }
+
+  .description {
+    height: 2.5em;
+    line-height: 1.25em;
+  }
+
+  .infoAndActions {
+  }
+  
+  .stat {
+    font-style: italic;
+  }
+
+  .action {
+    text-align: right;
+    a {
+      border-radius: .5em;
+      background: lighten(#FFEE97,3);
+      //padding: .5em;
+      &:hover {
+        background: lighten(#FFF6C6,3);
+      }
+    }
+  }
+  .chart {
+    height: 6.5em;
+    margin: 0.25em 0 0.25em 0;
+  }
+}

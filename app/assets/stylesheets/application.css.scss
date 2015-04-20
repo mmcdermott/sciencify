@@ -1,0 +1,123 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require reset
+ *= require_tree .
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+$logoAspect: (141/686)px;
+$baseColor: #FFE873;
+$navOptionColor: #FFF2B2;
+$navbarHeight: 2em;
+$logoWidth: 48%;
+$mastheadHeight: 9em;
+$footerHeight: 4em;
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 0 0 0;
+  padding: 0 0 1em 0;
+}
+
+#sitewide {
+  background: $baseColor;
+}
+
+header#sitewide {
+  padding: 0 0 1em 1em;
+  height: $mastheadHeight;
+  box-shadow: 0 .1em 0.1em lighten($baseColor, 7%);
+  #logo img {
+    position: absolute;
+    top: .1em;
+    left: 1em;
+    width: $logoWidth;
+  }
+  
+  nav {
+    position: absolute;
+    top: $mastheadHeight - $navbarHeight;
+    width: 90%;
+    ul li {
+      float: left;
+      width: 6.5em;
+      margin-right: .8em;
+      &#sign_out {
+        float: right;
+      }
+      a {
+        text-align: center;
+        font-size: 0.9em;
+        display: block;
+        line-height: $navbarHeight;
+        width: 100%;
+        border-radius: .2em;
+        background: $navOptionColor;
+        &:hover {
+          background-color: lighten($navOptionColor, 10%);
+        }
+      }
+    }
+  }
+}
+
+.main_content {
+  margin: 1em;
+}
+
+#push {
+  height: $footerHeight;
+}
+
+footer#sitewide {
+  box-shadow: 0 -.1em 0.1em lighten($baseColor, 7%);
+  height: $footerHeight;
+  //position: absolute;
+  //bottom: 0;
+  
+  nav ul li a {
+    display: block;
+    text-align: center;
+    width: 100%;
+    line-height: $footerHeight;
+    font-size: 1em;
+  }
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+nav { 
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.title {
+  font-size: 2em;
+  font-weight: bold;
+}

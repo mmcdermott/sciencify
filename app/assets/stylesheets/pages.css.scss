@@ -1,0 +1,28 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$backgroundColor: #321D72;
+$textColor: white;
+
+.startBanner {
+  text-align: center;
+  padding: 3em 1em 1em 1em;
+  margin: 1em 1em 1em 1em;
+  background: $backgroundColor;
+  border-radius: 1em;
+  color: $textColor;
+  
+  h1 {
+    font-size: 4em;
+  }
+}
+
+.lifeBox {
+  text-align: center;
+  padding: 1em;
+  height: 30em;
+  background: $backgroundColor;
+  border-radius: 1em;
+  color: $textColor;
+}

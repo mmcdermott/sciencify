@@ -1,0 +1,5 @@
+%div{class: "question-#{question.answer_type}"}
+  .question=question.question
+  =form_tag submit_question_path(question), class: 'form-inline' do
+    =label_tag :value, question.input_label
+    =data_tag question

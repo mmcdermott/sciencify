@@ -1,0 +1,16 @@
+development:
+  :address: "mail.sciencify.com"
+  :domain: 'sciencify.com'
+  :port: 25
+  :authentication: "plain"
+  #:user_name: <%= ENV['MAIL_USERNAME'] %>
+  #:password: <%= ENV['MAIL_PASSWORD'] %>
+  :enable_starttls_auto: false
+production:
+  :address: "mail.sciencify.com"
+  :port: 25
+  :authentication: "plain"
+  # TODO: Make this work
+  #:user_name: <%= ENV['MAIL_USERNAME'] %>
+  #:password: <%= ENV['SMTP_PASSWORD'] %> 
+  :enable_starttls_auto: false

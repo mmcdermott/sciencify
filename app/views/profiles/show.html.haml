@@ -1,0 +1,10 @@
+%header.user-header
+  -if @profile.nickname.nil?
+    %h1="No Nickname Set!"
+  -else
+    %h1=@profile.nickname
+  =mail_to @user.email
+  -if @profile.bio.nil?
+    %h3="Life Story: In Progress. Please Pardon My Dust."
+  -else 
+    =@profile.bio

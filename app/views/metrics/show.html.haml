@@ -1,0 +1,9 @@
+%h1=@metric.name
+%p=@metric.description
+-if user_signed_in? && current_user.registered_for(@metric)
+  ="You're registered for this metric. Good Job!"
+-else 
+  .register
+    =link_to "Register for this Metric", new_metric_registration_path(@metric)
+
+=render partial: 'questions/question_data', collection: @questions, as: :question

@@ -1,0 +1,14 @@
+.metric
+  .row
+    .col-xs-3.col-md-3.chart
+      =line_chart metric.questions.first.data.where(user_id: @user.id).group_by_day(:created_at).average(:value), height: '6em'
+    .col-xs-9.col-md-9
+      .row
+        .col-xs-12.col-md-12
+          .title=link_to metric.name, metric
+          .description=truncate(metric.description, length: 100)
+      .row.infoAndActions
+        .col-xs-7.col-md-7.stat
+          =pluralize(metric.data_count,"Data Point")
+        .col-xs-5.col-md-5
+          =link_to "Add Data Now", metric_questions_path(metric)

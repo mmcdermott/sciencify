@@ -1,0 +1,17 @@
+.questionInput.hidden
+  = question_form.label :question
+  = question_form.text_field :question, placeholder: 'Question Name', class: 'form-control'
+  = question_form.label :input_label
+  = question_form.text_field :input_label, placeholder: 'Data Label', class: 'form-control'
+  %br
+  %span='Data Type:'
+  .answerTypes
+    %label.radio
+      = question_form.radio_button(:answer_type,'numeric',class: 'form-control')
+      Number
+    /%label.radio
+    /  = question_form.radio_button(:answer_type, 'classification', class: 'form-control')
+    /  Classification
+    /%label.radio
+    /  = question_form.radio_button(:answer_type, 'string', class: 'form-control')
+    /  String

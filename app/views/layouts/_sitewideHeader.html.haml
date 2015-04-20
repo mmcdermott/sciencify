@@ -1,0 +1,21 @@
+%header#sitewide
+  #logo
+    =link_to image_tag('logoAttempt1.png'), root_path
+  %nav
+    %ul
+      -if user_signed_in?
+        -#%li
+        -#  %a{href: user_profile_path(current_user)}='Profile'
+        %li
+          %a{href: user_registrations_path(current_user)}='Your Metrics'
+        %li
+          %a{href: new_metric_path}='Create a Metric'
+        %li#sign_out
+          %a{href: destroy_user_session_path, method: :delete}='Sign Out'
+      -else
+        %li
+          %a{href: new_user_session_path}='Sign In'
+        %li
+          %a{href: new_user_registration_path}='Sign Up'
+        %li
+          %a{href: new_metric_path}='Create a Metric'

@@ -1,0 +1,16 @@
+= form_for @metric do |test_form|
+  .formInputs
+    .testDetails
+      %legend='Test Details'
+      = test_form.label :name
+      = test_form.text_field :name, placeholder: 'Test Name...', class: 'form-control'
+      = test_form.label :description
+      = test_form.text_area :description, placeholder: 'Describe Your New Test Here...', size: '60x10', class: 'form-control'
+      = test_form.label :published
+      = test_form.check_box :published
+    .questionDetails
+      %legend='Question Details'
+      = test_form.fields_for :questions do |question_form|
+        = render partial: 'question_form', object: question_form
+      #AddQuestion.btn.btn-small="Add Another Question"
+  = test_form.submit "Create Metric!", class: 'btn btn-success btn-large', class: 'form-control'

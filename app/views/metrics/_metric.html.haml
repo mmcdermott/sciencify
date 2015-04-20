@@ -1,0 +1,11 @@
+.metric
+  .container.col-xs-12.col-md-12
+    .title=link_to metric.name, metric
+    .description=metric.description
+  .container.col-xs-12.col-md-12.infoAndActions
+    .col-xs-4.col-md-4.stat
+      ="#{metric.registrations.count} Participants"
+    .col-xs-4.col-md-4.stat
+      ="#{metric.data_count} Data Points Collected"
+    .col-xs-4.col-md-4.stat.action
+      =link_to "Register Now", new_metric_registration_path(metric)

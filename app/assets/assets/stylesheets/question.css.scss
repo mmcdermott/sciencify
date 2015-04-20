@@ -1,0 +1,24 @@
+// Place all the styles related to the Question controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.question-numeric {
+  border-radius: .2em;
+  background: #FFF2B2;
+  padding: 1em;
+  width: 45%;
+}
+
+.question {
+  font-size: 1.2em;
+}
+
+.data {
+  width: 41em;
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

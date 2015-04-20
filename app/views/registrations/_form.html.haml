@@ -1,0 +1,5 @@
+=form_for [metric, registration], class: 'form-inline' do |f|
+  =f.label :frequency, "Reminder Frequency"
+  =f.text_field :frequency, class: 'form-control'
+  =f.hidden_field :user_id, value: current_user.id
+  =f.submit "Register", class: 'form-control'
