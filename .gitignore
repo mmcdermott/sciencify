@@ -1,6 +1,10 @@
 *.rbc
+*.sassc
+.sass-cache
 capybara-*.html
 .rspec
+/.bundle
+/vendor/bundle
 /log
 /tmp
 /db/*.sqlite3
@@ -33,3 +37,6 @@ bower.json
 
 # Ignore pow environment settings
 .powenv
+
+# Ignore any swp files.
+*.swp
