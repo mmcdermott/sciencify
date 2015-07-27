@@ -5,4 +5,5 @@ class Registration < ActiveRecord::Base
 
   # Validations:
   validates_presence_of :metric, :user
+  validates_uniqueness_of :user, scope: :metric
 end

@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819062638) do
+ActiveRecord::Schema.define(version: 20150727035316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "metrics", force: true do |t|
+  create_table "metrics", force: :cascade do |t|
     t.integer  "creator_id",                  null: false
     t.integer  "frequency",   default: 1
     t.text     "description"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140819062638) do
 
   add_index "metrics", ["creator_id"], name: "index_metrics_on_creator_id", using: :btree
 
-  create_table "numeric_data", force: true do |t|
+  create_table "numeric_data", force: :cascade do |t|
     t.integer  "question_id",                 null: false
     t.integer  "user_id",                     null: false
     t.float    "value"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140819062638) do
   add_index "numeric_data", ["question_id"], name: "index_numeric_data_on_question_id", using: :btree
   add_index "numeric_data", ["user_id"], name: "index_numeric_data_on_user_id", using: :btree
 
-  create_table "profiles", force: true do |t|
+  create_table "profiles", force: :cascade do |t|
     t.integer  "user_id",    null: false
     t.string   "nickname"
     t.text     "bio"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20140819062638) do
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
-  create_table "questions", force: true do |t|
+  create_table "questions", force: :cascade do |t|
     t.integer  "answer_type"
     t.text     "question"
     t.string   "input_label"
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20140819062638) do
 
   add_index "questions", ["metric_id"], name: "index_questions_on_metric_id", using: :btree
 
-  create_table "registrations", force: true do |t|
+  create_table "registrations", force: :cascade do |t|
     t.integer  "metric_id",                       null: false
     t.integer  "user_id",                         null: false
     t.integer  "frequency",       default: 1
@@ -73,9 +73,10 @@ ActiveRecord::Schema.define(version: 20140819062638) do
   end
 
   add_index "registrations", ["metric_id"], name: "index_registrations_on_metric_id", using: :btree
+  add_index "registrations", ["user_id", "metric_id"], name: "index_registrations_on_user_id_and_metric_id", unique: true, using: :btree
   add_index "registrations", ["user_id"], name: "index_registrations_on_user_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
