@@ -10,11 +10,11 @@ class MetricsController < ApplicationController
     end
     @metric = Metric.new metric_params
     @metric.creator_id = current_user.id
-    # TODO make this an option!!
-    #@metric.published = false
     if @metric.save
-      flash[:notice] = "Metric Created Successfully!"
-      redirect_to @metric
+      if @metric.registrations.create user_id: current_user.id, metric_id: @metric.id
+        flash[:notice] = "Metric Created Successfully!"
+        redirect_to @metric
+      end
     else
       logger.info "Metric failed.\n #{@metric.attributes.inspect}\n #{@metric.errors.full_messages}"
       flash[:alert] = "Oops! Something went wrong."

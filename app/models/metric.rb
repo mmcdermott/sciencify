@@ -10,7 +10,7 @@ class Metric < ActiveRecord::Base
   validates_presence_of :questions, :creator, :name, :description
   validates_inclusion_of :published, in: [true, false]
 
-  accepts_nested_attributes_for :questions
+  accepts_nested_attributes_for :questions, :registrations
 
   #Scopes:
   scope :viewable, -> {where(published: true)}
